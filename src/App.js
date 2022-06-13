@@ -7,11 +7,12 @@ const App = () => {
 
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [memoryArray, setMemoryArray] = useState([]);
 
   return (
     <div> 
       <Header score={score} bestScore={bestScore} />
-      <Game score={score} bestScore={bestScore}/>
+      <Game memoryArray={memoryArray} />
     </div>
   );
 };

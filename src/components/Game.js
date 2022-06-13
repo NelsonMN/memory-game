@@ -1,60 +1,50 @@
+import React, { useState } from 'react';
 import '../styles/css/Game.css'
 
 const Game = () => {
-    return (
-    <div className='background'>
-        <div className='cards'>
-            <div className="card">
-                <img className='image' id='Carla' src={require('../styles/images/Carla.webp')} alt='Carla'></img>
-                <span className='name'>Carla</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Laverne' src={require('../styles/images/Laverne.webp')} alt='Laverne'></img>
-                <span className='name'>Laverne</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Dr. Cox' src={require('../styles/images/Cox.webp')} alt='Dr. Cox'></img>
-                <span className='name'>Dr. Cox</span>
-            </div>
-            <div className="card">
-                <img className='image' id='J.D.' src={require('../styles/images/JD.webp')} alt='J.D.'></img>
-                <span className='name'>J.D.</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Elliot' src={require('../styles/images/Elliot.webp')} alt='Elliot'></img>
-                <span className='name'>Elliot</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Doug' src={require('../styles/images/Doug.webp')} alt='Doug'></img>
-                <span className='name'>Doug</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Janitor' src={require('../styles/images/Janitor.webp')} alt='Janitor'></img>
-                <span className='name'>Janitor</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Jordan' src={require('../styles/images/Jordan.webp')} alt='Jordan'></img>
-                <span className='name'>Jordan</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Dr. Kelso' src={require('../styles/images/Kelso.webp')} alt='Dr. Kelso'></img>
-                <span className='name'>Dr. Kelso</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Ted' src={require('../styles/images/Ted.webp')} alt='Ted'></img>
-                <span className='name'>Ted</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Todd' src={require('../styles/images/Todd.webp')} alt='Todd'></img>
-                <span className='name'>Todd</span>
-            </div>
-            <div className="card">
-                <img className='image' id='Turk' src={require('../styles/images/Turk.webp')} alt='Turk'></img>
-                <span className='name'>Turk</span>
-            </div>
-        </div>
-    </div>
-    )
-}
+    const [players, setPlayers] = useState([
+        {name: 'J.D.', id: 0},
+        {name: 'Dr. Cox', id: 1},
+        {name: 'Elliot', id: 2},
+        {name: 'Turk', id: 3},
+        {name: 'Dr. Kelso', id: 4},
+        {name: 'Carla', id: 5},
+        {name: 'Jordan', id: 6},
+        {name: 'The Todd', id: 7},
+        {name: 'Ted', id: 8},
+        {name: 'Doug', id: 9},
+        {name: 'Laverne', id: 10},
+        {name: 'Janitor', id: 11},
+    ])
 
-export default Game
+    const randomizeArray = array => {
+        const arrayCopy = [...array]
+
+        for (let i = arrayCopy.length - 1; i > 0; i--) {
+            const j = Math.floor( Math.random() * (i + 1) );
+            [ arrayCopy[i], arrayCopy[j] ] = [ arrayCopy[j], arrayCopy[i] ];
+        }
+        
+        return arrayCopy
+    };
+
+    const updatePlayerState = () => {
+        const updatedState = randomizeArray(players)
+        setPlayers(updatedState)
+    }
+
+    return (
+        <div className='cards'>
+            {players.map((player) => {
+                return (
+                <div className="card" onClick={updatePlayerState}>
+                    <img className='image' id={player.id} src={require(`../styles/images/${player.name}.webp`)} alt={player.name}></img>
+                    <span className='name'>{player.name}</span>
+                </div>
+                )
+            })}
+        </div> 
+    )
+};
+
+export default Game;
