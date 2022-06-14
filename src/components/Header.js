@@ -9,7 +9,7 @@ const Header = (props) => {
         </h1>
         <div id="score">
           <span>Score: {props.score}</span> 
-          <span>Highscore: {props.bestScore}</span>
+          <span>Highscore: {props.highScore}</span>
         </div>
       </div>
       <p className='description'>
