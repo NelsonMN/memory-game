@@ -15,23 +15,23 @@ const Game = (props) => {
     {name: 'Doug', id: 9},
     {name: 'Laverne', id: 10},
     {name: 'Janitor', id: 11},
-    ])
+    ]);
 
   const randomizeArray = array => {
-    const arrayCopy = [...array]
+    const arrayCopy = [...array];
 
     for (let i = arrayCopy.length - 1; i > 0; i--) {
       const j = Math.floor( Math.random() * (i + 1) );
       [ arrayCopy[i], arrayCopy[j] ] = [ arrayCopy[j], arrayCopy[i] ];
     }
     
-  return arrayCopy
+    return arrayCopy;
   };
 
   const updatePlayerState = () => {
     const updatedState = randomizeArray(players)
     setPlayers(updatedState)
-  }
+  };
 
   return (
     <div className='cards'>
@@ -46,8 +46,8 @@ const Game = (props) => {
                 </div>
             )
         })}
-    </div> 
-  )
+    </div>
+  );
 };
 
 export default Game;

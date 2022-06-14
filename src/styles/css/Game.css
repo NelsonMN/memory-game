@@ -1,18 +1,16 @@
 .background {
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
     background-color: rgb(225, 240, 255);
 }
 
 .cards {
-    max-width: 1705px;
+    max-width: 1713px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));   
     padding: 1.5rem; 
     row-gap: 1.5rem;
     justify-items: center;
     align-content: center;
+    background-color: rgb(225, 240, 255);
 }
 
 .card {
@@ -25,10 +23,14 @@
     background-color: rgb(59, 95, 132);
     border-radius: 10px;
     gap: .80rem;
+    transition-duration: .3s;
+    cursor: pointer;
 }
 
 .card:hover {
     box-shadow: 0 0 2rem rgb(85, 135, 185);
+    transform: scale(1.05);
+    transition-duration: .3s;
 }
 
 .image {
@@ -38,7 +40,13 @@
 }
 
 .name {
-    color: white;
+    color: rgb(225, 240, 255);
     font-size: 1.125rem;
     font-weight: bold;
+}
+
+@media (min-width: 1750px) {
+    .cards {
+        width: 1713px;
+    }
 }
