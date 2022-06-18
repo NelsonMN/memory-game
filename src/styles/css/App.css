@@ -8,6 +8,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: rgb(210, 230, 251);
 }
 
 @media (min-width: 1750px) {
