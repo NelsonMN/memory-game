@@ -1,5 +1,5 @@
 
-## Resume Architect
+## Scrubs Memory Game
 
 This is a Scrubs themed memory game in which users are asked to click a card containing a character. You can gain points by clicking on the cards that you have not already clicked. The maximum highscore possible is 12.
 
